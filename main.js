@@ -1,39 +1,96 @@
-// VARIABILI E COSTANTI
+// Dati da ricavare dal form
+const fullName = document.getElementById("fullName")
+const kmtr = document.getElementById("kmtr")
+const età = document.getElementById("età")
+const btn = document.getElementById("btn")
 
-let età = prompt("Salve, prego inserire l'età per favorire della promozione");
-let kmtr = prompt("Inserisca i chilometri della tratta");
-const sc1 = 0.80;
-const sc2 = 0.60;
-const price = 0.21;
+console.log(fullName.value)
 
-console.log(parseInt(età), parseInt(kmtr), price)
+// Dati da stampare nell'HTML
+const name = document.getElementById("name")
+const offerta = document.getElementById("offerta")
+const carrozza = document.getElementById("carrozza")
+const codice = document.getElementById("codice")
+const prezzoFinale = document.getElementById("prezzoFinale")
 
-// PRIMA OPERAZIONE
+// Variabili presenti
+const costo = 0.21;
+const numeroCarrozza = Math.floor(Math.random()* 10);
+const numeroCodice = Math.floor(Math.random()* 999999);
 
-let start = price * kmtr
+btn.addEventListener('click', function(event) {
+    // console.log(fullName.value, kmtr.value, età.value)
+    const kilometri = parseFloat(kmtr.value)
+    const prezzoBiglietto = kilometri * costo;
+    console.log(prezzoBiglietto)
 
-console.log( `Il prezzo base é ${start.toFixed(2)}€` )
-
-// CONDIZIONI
-
-if ( età < 18 ){
-
-    let final = start * sc1;
-
-    alert( `Il prezzo per la tua età é ${final.toFixed(2)}€` )
-
-} else if ( età > 65 ) {
-
-        let final = start * sc2
+    const scontoMinorenni = prezzoBiglietto * 0.8;
+    const scontoOver65 = prezzoBiglietto * 0.6;
     
-        alert( `Il prezzo per la tua età é ${final.toFixed(2)}€` )
 
-} else {
+    name.innerHTML = fullName.value
+    carrozza.innerHTML = numeroCarrozza
+    codice.innerHTML = numeroCodice
 
-    let final = start
+    if (età.value == "minorenne"){
+        prezzoFinale.innerHTML = `${scontoMinorenni.toFixed(2)}€`
+    } else if (età.value == "over65") {
+        prezzoFinale.innerHTML = `${scontoOver65.toFixed(2)}€`
+    } else {
+        prezzoFinale.innerHTML = `${prezzoBiglietto.toFixed(2)}€`
+    }
+})
 
-    alert( `Il prezzo per la tua età é ${final.toFixed(2)}€` )
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // PRIMA OPERAZIONE
+
+// let start = price * kmtr
+
+// console.log( `Il prezzo base é ${start.toFixed(2)}€` )
+
+// // CONDIZIONI
+
+// if ( età < 18 ){
+
+//     let final = start * sc1;
+
+//     // alert( `Il prezzo per la tua età é ${final.toFixed(2)}€` )
+
+// } else if ( età > 65 ) {
+
+//         let final = start * sc2
+    
+//         // alert( `Il prezzo per la tua età é ${final.toFixed(2)}€` )
+
+// } else {
+
+//     let final = start
+
+//     // alert( `Il prezzo per la tua età é ${final.toFixed(2)}€` )
+// }
 
 
 

@@ -50,6 +50,13 @@ h1{
     border: 1px solid ;
     border-radius: 5px;
     padding: 20px;
+    opacity: 0;
+    transition: 0.1s;
+}
+
+.hidden {
+    opacity: 0;
+    transition: 0.1s;
 }
 
 table {
@@ -83,4 +90,9 @@ td, th{
     border-radius: 5px;
     color: rgb(251, 0, 96);
     font-weight: 800;
+}
+
+.show{
+    opacity: 1;
+    transition: 0.1s;
 }

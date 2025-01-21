@@ -15,14 +15,17 @@ const prezzoFinale = document.getElementById("prezzoFinale")
 
 // Variabili presenti
 const costo = 0.21;
-const numeroCarrozza = Math.floor(Math.random()* 10);
-const numeroCodice = Math.floor(Math.random()* 999999);
+const numeroCarrozza = Math.floor(Math.random()* 10) + 1;
+const numeroCodice = Math.floor(Math.random()* 999999) + 100000;
 
 btn.addEventListener('click', function(event) {
     // console.log(fullName.value, kmtr.value, età.value)
+
     const kilometri = parseFloat(kmtr.value)
     const prezzoBiglietto = kilometri * costo;
     console.log(prezzoBiglietto)
+
+    // const tuoBiglietto = document.getElementById(tuoBiglietto)
 
     const scontoMinorenni = prezzoBiglietto * 0.8;
     const scontoOver65 = prezzoBiglietto * 0.6;
@@ -39,6 +42,10 @@ btn.addEventListener('click', function(event) {
     } else {
         prezzoFinale.innerHTML = `${prezzoBiglietto.toFixed(2)}€`
     }
+
+    tuoBiglietto.classList.remove('hidden')
+    tuoBiglietto.classList.add('show')
+
 })
 
 

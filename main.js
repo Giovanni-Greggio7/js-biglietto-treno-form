@@ -36,10 +36,13 @@ btn.addEventListener('click', function(event) {
     codice.innerHTML = numeroCodice
 
     if (età.value == "minorenne"){
+        offer.innerHTML = 'Sconto minorenni'
         prezzoFinale.innerHTML = `${scontoMinorenni.toFixed(2)}€`
     } else if (età.value == "over65") {
+        offer.innerHTML = 'Sconto Over 65'
         prezzoFinale.innerHTML = `${scontoOver65.toFixed(2)}€`
     } else {
+        offer.innerHTML = 'Offerta standard'
         prezzoFinale.innerHTML = `${prezzoBiglietto.toFixed(2)}€`
     }
 
